@@ -1,14 +1,25 @@
 tArgs = { ... }
 
+--[[
+Usage: redctl <reset/update> <id> [fs]
+Parameter fs is only requiered together with update
+If fs is a directory all files from the directory and its subdirectories will
+be uploaded to id
+
+Examples:
+    redctl reset 112
+    redctl update 112 /farm
+    redctl update 112 /farm/growWeed
+]]
 local config = {
     ["modem_side"] = "back",
-    ["key"] = "1wi7i9h15p4rk73",
-    ["channel_update"] = "__update__",
-    ["channel_reset"] = "__reset__"
+    ["key"] = "1wi7i9h15p4rk73", --Secret key needed to reset/update this PC (optional)
+    ["channel_update"] = "__update__", --Rednet protocol for updates
+    ["channel_reset"] = "__reset__" --Rednet protocol for reset messages
 }
 
 function printUsage()
-    error("Usage: redloader <reset/update> <id> [fs]")
+    error("Usage: redctl <reset/update> <id> [fs]")
 end
 
 function getFiles(dir)

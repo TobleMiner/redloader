@@ -1,14 +1,12 @@
 local config = {
     ["modem_side"] = "back",
-    ["whitelist"] = {
+    ["whitelist"] = { --Ids of PCs allowed to reset/update this PC (optional)
         [9] = true
     },
-    ["key"] = "1wi7i9h15p4rk73",
-    ["channel_update"] = "__update__",
-    ["channel_reset"] = "__reset__",
-    ["tries"] = 3,
-    ["timeout"] = 5,
-    ["default"] = "default"
+    ["key"] = "1wi7i9h15p4rk73", --Secret key needed to reset/update this PC (optional)
+    ["channel_update"] = "__update__", --Rednet protocol for updates
+    ["channel_reset"] = "__reset__", --Rednet protocol for reset messages
+    ["default"] = "default" --Program to run
 }
 
 function prepareFs(file)
